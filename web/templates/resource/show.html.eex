@@ -1,0 +1,18 @@
+<h2>Show resource</h2>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @resource.type %>
+  </li>
+
+  <li>
+    <strong>Data:</strong>
+    <%= "#{inspect @resource.data}" %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: resource_path(@conn, :edit, @resource) %>
+<%= link "Back", to: resource_path(@conn, :index) %>

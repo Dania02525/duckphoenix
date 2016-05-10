@@ -1,0 +1,28 @@
+<h2>Listing resources</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Data</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for resource <- @resources do %>
+    <tr>
+      <td><%= resource.type %></td>
+      <td><%= "#{inspect resource.data}" %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: resource_path(@conn, :show, resource), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: resource_path(@conn, :edit, resource), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: resource_path(@conn, :delete, resource), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New resource", to: resource_path(@conn, :new) %>
